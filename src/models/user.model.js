@@ -1,6 +1,6 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const userSchema = new Schema({
+const userSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
@@ -13,13 +13,17 @@ const userSchema = new Schema({
         trin: true,
     },
     gastos_total: {
-        type:String,
-        trin: true,
+        type: Number,
+        default: 0
+
     },
     ingreso_total: {
-        type:String,
-        trin: true,
+        type: Number,
+        default: 0
     },
+},  {
+    timestamps: true
+    
 })
 
-export default model('User', userSchema)
+export default mongoose.model('User', userSchema)
