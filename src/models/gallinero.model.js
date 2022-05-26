@@ -4,7 +4,6 @@ const gallineroSchema = mongoose.Schema({
     id_User: {
         type: String,
         required: true,
-        unique: true,
         trin: true,
     },
     cantidad: {

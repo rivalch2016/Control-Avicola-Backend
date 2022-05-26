@@ -1,8 +1,19 @@
 import Gallinero from '../models/gallinero.model'
 import User from '../models/user.model'
 
-export const getGallineros = async (req, res) => {
+export const getAllGallineros = async (req, res) => {
     const gallineros = await Gallinero.find();
+
+    if (!gallineros) return res.status(404).json({message: 'Gallinero does not exists'})
+
+    res.json(gallineros)
+};
+
+export const getGallineros = async (req, res) => {
+    const gallineros = await Gallinero.find({id_User : req.params.id});
+
+    if (!gallineros) return res.status(404).json({message: 'Gallinero does not exists'})
+
     res.json(gallineros)
 };
 

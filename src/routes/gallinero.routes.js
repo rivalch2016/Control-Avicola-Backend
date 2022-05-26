@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import {getGallinero,
     getGallineros,
+    getAllGallineros,
     createGallinero,
     updatedGallinero,
     deleteGallinero
@@ -8,9 +9,11 @@ import {getGallinero,
 
 const router = Router()
 
-router.get('/gallineros', getGallineros)
+router.get('/allgallineros', getAllGallineros)
 
-router.get('/gallineros/:id', getGallinero)
+router.get('/gallineros/:id',getGallineros)
+
+router.get('/onegallineros/:id', getGallinero)
 
 router.post('/gallineros/:id_User', createGallinero)
 
